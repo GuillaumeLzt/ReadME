@@ -5,7 +5,7 @@ require('dotenv');
 var path = require('path');
 const app = express();
 const cookieParser = require('cookie-parser');
-
+var expresslayouts = require('express-ejs-layouts');
 const routes = require('./server/routes/admin');
 
 var corsOptions = {
@@ -27,9 +27,13 @@ app.use(session({
   resave: true
 }));
 
+app.set("layout", "./layouts/main");
 app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'ejs');
 app.use("images", express.static(path.join(__dirname, "images")));
+
+app.use(expresslayouts);
 
 const db = require("./server/models");
 const Role = db.role;

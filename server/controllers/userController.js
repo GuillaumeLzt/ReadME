@@ -5,13 +5,23 @@ var bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 exports.home = (req, res) => {
 
-    res.send('Hello World');
+    res.render('index');
 };
 
 exports.register = (req, res) => {
 
     res.render('register');
 };
+
+exports.profil = (req, res) => {
+
+    res.render('userProfil');
+}
+exports.photos = (req, res) => {
+
+    res.render('userPhotos');
+}
+
 exports.login = (req, res) => {
 
     res.render('login');

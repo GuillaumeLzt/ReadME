@@ -11,6 +11,9 @@ origin: 'http://localhost:3000'
 router.get("/", userController.home);
 router.get('/contact', userController.contact);
 
+router.get('/userProfil', userController.profil);
+
+router.get('/userPhotos', userController.photos);
 router.get('/forgetpassword', userController.forget);
 router.post('/forgetpassword', userController.forgetPost);
 
