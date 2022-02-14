@@ -1,0 +1,53 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;800&display=swap" rel="stylesheet">
+
+<link rel='stylesheet' href='/stylesheets/styles.css' />
+
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+
+            <div class="wrapper">
+                <div class="box1">
+                    <h1> Inscription</h1>
+                </div>
+                <div class="box2"> 
+            
+                <form action="/register" method="post">
+                    <div class="form-group">
+                        <label for="pseudo">Pseudo :</label>
+
+                        <input type="pseudo" id="pseudo" name="username" class="form-control" placeholder="Enter Pseudo..."
+                            value="<%= typeof pseudo != 'undefined' ? pseudo : '' %>"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email..."
+                            value="<%= typeof email != 'undefined' ? email : '' %>" size="30" />
+                        <div class="email error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password :</label>
+                        
+                        <input type="password" id="password" name="password" class="form-control"
+                            placeholder="Create Password..." value="<%= typeof password != 'undefined' ? password : '' %>" size="30"/>
+                        <div class="password error"></div>
+                    </div>
+                    
+                    <p>Vous avez déjà un compte ? <a href="/login">Login</a></p>
+                </div>
+                <div class="box3">
+                    <input  type="submit" value="Valider" class="btn btn-primary btn-block">
+                    <input type="button" value="Annuler" onclick="history.go(-1)">
+                </div>      
+                </form>          
+        </div>
+    </div>
+
+<p>© Copyright 2022 - Dwwm Prod</p>
+
+</div>
+
+    
