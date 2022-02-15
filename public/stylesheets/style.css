@@ -1,6 +1,8 @@
 body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 0px;
+    font: 0px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#B8B8FF), color-stop(100%,#FFEEDD));
+
   }
   
   a {
@@ -8,7 +10,7 @@ body {
   }
   @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
   
-  body {
+  /* body {
     margin: 0px;
     padding: 0px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#B8B8FF), color-stop(100%,#FFEEDD));
@@ -18,12 +20,13 @@ body {
     transform: translate(-50%, -50%);
     font-family: "Roboto", sans-serif;
     font-weight: bold;
-  }
+  } */
   
   form {
     padding: 30px;
     background-color: white;
     border-radius: 10px;
+    margin: 0px 0px 0px 0px;
   }
   form h1 {
     font-size: 20px;
@@ -37,6 +40,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
+    margin: 0px 0px 0px 0px;
   }
   form .corps-formulaire .groupe {
     position: relative; /* Pour mettre positionner l’élément dans le flux normal de la page */

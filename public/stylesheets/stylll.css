@@ -76,7 +76,7 @@ h1{
     display: flex;
     justify-content: space-evenly;
     align-content: center;
-    margin: 75px 10px 0px 10px;
+    margin: 70px 10px 0px 10px;
     /* border: black solid; */
 }
 
@@ -247,3 +247,128 @@ input[type=button]:hover {
     background-color: #B8B8FF;
     color: rgb(253, 253, 253);
 }
+
+
+
+
+
+form {
+    padding: 30px;
+    /* background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#FFEEDD), color-stop(10%,#B8B8FF), color-stop(100%,#FFD8BE)); */
+    border-radius: 10px;
+    margin: 0px 0px 0px 0px;
+  }
+  form h1 {
+    font-size: 25px;
+    margin: 50px 0px -15px 0px;  
+}
+  form .separation {
+    width: 100%;
+    height: 1px;
+    background-color: #747cdf;
+  }
+  form .corps-formulaire {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    margin: 20px 0px 0px 0px;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+  }
+  form .corps-formulaire .groupe {
+    position: relative; /* Pour mettre positionner l’élément dans le flux normal de la page */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  form .corps-formulaire .gauche .groupe input {
+    margin-top: 5px;
+    padding: 10px 5px 10px 30px;
+    border: 1px solid #c9c9c9;
+    outline-color: #747cdf;
+    border-radius: 5px;
+  }
+  form .corps-formulaire .gauche .groupe input :hover {
+    margin-top: 5px;
+    padding: 10px 5px 10px 30px;
+    border: 1px solid #c9c9c9;
+    outline-color: #747cdf;
+    border-radius: 5px;
+  }
+  
+  form .corps-formulaire .gauche .groupe i {
+    position: absolute; /* positionné par rapport à son parent le plus proche positionné */
+    left: 0;
+    top: 25px;
+    padding: 9px 8px;
+    color: #747cdf;
+  }
+  form .corps-formulaire .droite {
+    margin: 27px 0px 0px 45px;
+    height: 335px;
+    width: 245px;
+  }
+  form .corps-formulaire .droite .groupe {
+    height: 100%;
+  }
+  form .corps-formulaire .droite .groupe textarea {
+    margin-top: 5px;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid #747cdf;
+    outline: none;
+    border-radius: 5px;
+    resize: none;
+    height: 72%;
+  }
+  form .pied-formulaire button {
+    margin: 0px 0px 0px 0px;
+    color: white;
+    background-color: #747cdf ;
+    font-size: 15px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+  form .pied-formulaire button:hover {
+    transform: scale(1.05);
+    color: #000;
+    background: black;
+  }
+  
+  @media screen and (max-width: 920px) {
+    form .corps-formulaire .droite {
+      margin-left: 0px;
+    }
+  }
+  form .pied-formulaire input {
+    margin: 0px 15px 0px 15px;
+    background-color: #9381FF;
+    color: white;
+    font-size: 15px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+    display: inline;
+  }
+  form .pied-formulaire input :hover {
+    margin: 0px 15px 0px 15px;
+    font-size: 35px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+  
+  img{
+    cursor: pointer;
+  }
