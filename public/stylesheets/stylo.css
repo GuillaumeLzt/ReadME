@@ -2,7 +2,7 @@
 *{
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   font-family: 'Poppins', sans-serif;
   margin-top: 0px;
   /* background: #C4C4C4; */
@@ -118,8 +118,11 @@ h5{
     grid-template-columns: repeat(auto-fill, 200px);
     justify-content: center;
     grid-gap: 20px;
-    background:#C4C4C4;
-    border: solid #C4C4C4 20px;
+    background:white;
+    border: solid white 20px;
+    border-radius: 10px;
+    box-shadow:10px 10px 7px rgba(173, 173, 173, 0.7);
+
 }
 .grid-item {
     width: 200px;
@@ -528,7 +531,7 @@ hi.logo {
   }
   
   .navbar {
-    width: 100%;
+    width: 200%;
     color: aliceblue;
     background-color: #9381FF;
     height: 40px;
@@ -536,16 +539,16 @@ hi.logo {
     z-index: 1000;
   }
   
-  /* .navbar .containerNav {
+  .navbar .containerNav {
     max-width: 100%;
     margin: 0px auto;
     display: flex;
     justify-content:space-between;
     align-items: center;
     height: 40px;
-  } */
+  } 
   
-  nav {
+   nav {
     display: flex;
     height: 36px;
     justify-items: center;
@@ -553,16 +556,19 @@ hi.logo {
   
   }
   nav ul {
-    display: flex;
-    margin-right: 420px;
+    display: -webkit-flex;
+    margin-right: 230px;
     align-items: center;
-    margin-left: 430px;
+    margin-left: 290px;
     justify-content:space-around;
     align-items: center;
+    color: white;
   }
   nav ul li {
     list-style: none;
+    margin: 10px 8px 10px 0px;
   }
+
   nav ul li a {
     color: white;
     text-decoration: none;
@@ -572,7 +578,28 @@ hi.logo {
     display: flex;
     justify-content: space-around;
   }
-  
+
+  div .connexion {
+    margin: 10px 0px 10px -15px;
+    font-size: 20px;
+    color: white;
+  }
+
+  div .connexion a  {
+    color: white;
+    list-style: none;
+    text-decoration: none;
+    padding: 5px 5px;
+    transition: all 0.3s ease 0s;
+  }
+
+  div .connexion a:hover {
+    color: #B8B8FF;
+    list-style: none;
+    text-decoration: none;
+    padding: 5px 5px;
+  }
+
   .navbar .button b {
     display: flex;
     color: white;
@@ -604,11 +631,11 @@ hi.logo {
     color:#B8B8FF;
   }
 
-  .nav ul{
+
+  /* .nav ul{
     list-style: none;
     display: -webkit-flex;
     display: -ms-flex;
-    display: flex ;
   }
 
   .nav ul li a{
@@ -618,8 +645,8 @@ hi.logo {
     font-weight: bold;
     transition: all .5s;
   }
-
-  /* .header{
+ 
+  .header{
       background: #8903AB;
       overflow: hidden;
   }
@@ -628,23 +655,91 @@ hi.logo {
       display: grid;
       grid-template-columns: 6fr 6fr;
       align-items: center;
-      width: 120px;
+      width: 100%;
       margin: auto;
   }
 
   .nav img{
       width: 120px;
       height: auto;
+      font-size: 150px
   }
 
   .nav ul li a :hover{
       color: #000;
       background: #fff;
   }
-
-
-
  */
+
+  /* .navbar{
+  display: grid;
+  border-radius: 10px;
+  grid-template-rows: 1fr;
+  grid-template-columns:  auto auto auto ;
+  gap: 7px;
+  background-color: #fdfdfc; 
+  height: 600px;   
+}
+
+/* .boxnav1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1; 
+  grid-row-end: 2;
+  color: rgb(8, 8, 8);
+  display: grid;
+  align-items: center;
+  border: red solid;
+  background-color: #000;
+}
+
+.boxnav2 {
+  grid-column-start: 2;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  color: rgb(8, 8, 8);
+  border-radius: 10px;
+  font-size: 12px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: #e4e0ee;
+  margin: -30px 10px 130px 10px;
+  height: 310px;
+}
+
+.boxnav3 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  color: rgb(3, 3, 3);
+  font-size: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  margin: 110px 10px 0px 10px;
+  border: black solid;
+}
+
+hi.logo {
+    margin-left: 90px;
+    margin-top: 55px;
+    cursor: pointer;
+    color: white;
+    width: 70px;
+    height: 20px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    font-size: 30px;
+    background-color: #000;
+}  */
+
+
+
+
   
 
   
