@@ -6,7 +6,23 @@ var path = require('path');
 const app = express();
 const cookieParser = require('cookie-parser');
 var expresslayouts = require('express-ejs-layouts');
-const routes = require('./server/routes/admin');
+const server = require ('http').createServer(app);
+const io = require("socket.io")(server);
+const routes = require('./server/routes/user');
+
+ /*------------------------------------------------
+ *  EVENEMENTS DE CONNECTION SOCKET
+ * ----------------------------------------------- 
+ */
+ // établissement de la connexion
+ // IMPORTANT! By default, socket.io() connects to the host that
+// served the page, so we dont have to pass the server url
+io.on('connection', (socket) => {
+  console.log('Un utilisateur s\'est connecté ! ') // FILE /client/chat.js
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);//pour povoir envoyer les evenements on utilise le EMIT
+    });
+});
 
 var corsOptions = {
 origin: 'http://localhost:3000'
@@ -54,9 +70,8 @@ db.mongoose
 
 app.use('/', routes);
 
-  
 require('./server/routes/authent')(app);
-require('./server/routes/user')(app);
+
 
 const PORT = process.env.PORT || 3000; 
 

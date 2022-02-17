@@ -1,39 +1,39 @@
-  <link rel='stylesheet' href='/stylesheets/stylo.css' />
+<link rel='stylesheet' href='/stylesheets/stylll.css' />
   
 
-<div class="wrapper">
-    <div class="cover">
+<div class="userProfilWrapper">
+    <div class="userProfilCover">
         <img src="/images/plage.jpg">
     </div>
-    <div class="id-sectio">
-        <div class="circle">
-            <img src="/images/images.jpg" class="logo">
+    <div class="userProfilId-section">
+        <div class="userProfilCircle">
+            <img src= "/images/<%=user.photoProfil%>" class="userProfilLogo">
         </div>
-        <h1>Profil</h1>
-        <div class="grille1">
+        <div class="userProfilTitle"><%=user.username%>
+        </div>
+        <div class="userProfilGrid">
 
-        <div class="grilleGallery">
-            <div class="gridGallery-item"><img src="/images/paysage4.jpg" width="75px" height="75px"></div>
-            <div class="gridGallery-item"><img src="/images/paysage1.jpg" width="75px" height="75px"></div>
-            <div class="gridGallery-item"><img src="/images/paysage2.jpg" width="75px" height="75px"></div>
-            <div class="gridGallery-item"><img src="/images/paysage3.jpg" width="75px" height="75px"></div>
-            <div class="gridGallery-item"><img src="/images/paysage5.jpg" width="75px" height="75px"></div>
-            <div class="gridGallery-item"><img src="/images/paysage6.jpg" width="75px" height="75px"></div>
+        <div class="userProfilGridGallery" onclick="window.location.href='/userPhotos'">
+            <div class="userProfilGridGallery-item"><img src="/images/paysage4.jpg" width="75px" height="75px"></div>
+            <div class="userProfilGridGallery-item"><img src="/images/paysage1.jpg" width="75px" height="75px"></div>
+            <div class="userProfilGridGallery-item"><img src="/images/paysage2.jpg" width="75px" height="75px"></div>
+            <div class="userProfilGridGallery-item"><img src="/images/paysage3.jpg" width="75px" height="75px"></div>
+            <div class="userProfilGridGallery-item"><img src="/images/paysage5.jpg" width="75px" height="75px"></div>
+            <div class="userProfilGridGallery-item"><img src="/images/paysage6.jpg" width="75px" height="75px"></div>
 
-            <div class="gridGallery-item"><img src="/images/paysage7.jpg" width="75px" height="75px"></div>
-            <div class="gridGallery-item"><img src="/images/paysage8.jpg" width="75px" height="75px"></div>
-            <div class="gridGallery-item"><img src="/images/paysage9.jpg" width="75px" height="75px"></div>
-            <div class="gridGallery-item"><img src="/images/paysage10.jpg" width="75px" height="75px"></div>
+            <div class="userProfilGridGallery-item"><img src="/images/paysage7.jpg" width="75px" height="75px"></div>
+            <div class="userProfilGridGallery-item"><img src="/images/paysage8.jpg" width="75px" height="75px"></div>
+            <div class="userProfilGridGallery-item"><img src="/images/paysage9.jpg" width="75px" height="75px"></div>
+            <div class="userProfilGridGallery-item"><img src="/images/paysage10.jpg" width="75px" height="75px"></div>
         </div>
-        <div class="grilleInfo">
-            <p>Pseudo : Befa</p>
-            <p>Age : 39 ans</p>
-            <p>Hobbies : Basketball, Football, RC</p>
-            <p>Genre : Homme</p>
-            <p>Status : Marié</p>
+        <div class="userProfilGrilleInfo">
+            <p><%=user.username%></p>
+            <p>Age: <%=user.age%> ans</p>
+            <p>Ville: <%=user.ville%></p>
+            <p>Situation: <%=user.situation%></p>
         </div>
-        <div class="grillePost">
-            <label for="inp" class="inp">
+        <div class="userProfilGrillePost">
+            <label for="inp" class="userProfilInput">
                 <input type="text" id="inp" placeholder="&nbsp;">
                 <span class="label">Publier</span>
                 <span class="focus-bg"></span>
@@ -42,20 +42,33 @@
                     <a href="#"><i class="fa-solid fa-paper-plane"></i></a>
                 </div>
         </div>                    
-            <div class="grillePubli">
-            <div class="container">
-                <img src="/images/images.jpg" class="logoPubli" width="30px" height="30px" >
-                <div class="name">Befa</div> 
-                <div class="contenu">
-                    <br>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel laboriosam dolores nostrum, minus aliquid omnis aspernatur sunt magnam unde earum. Placeat porro recusandae reprehenderit doloribus id praesentium, ut amet eaque eveniet quod eos provident sint minima aut expedita molestias laborum earum temporibus dolor illum, ipsam mollitia officia. Iure tempore animi voluptatibus earum, odio quos. Sequi fuga at, praesentium quisquam quos officiis dolor quam reiciendis repudiandae tempora repellat corrupti, sed expedita incidunt! Quae vero tempora porro amet laudantium exercitationem sunt suscipit quas expedita necessitatibus similique harum autem aliquid voluptatem, non nulla cupiditate sapiente ipsum? Nostrum inventore expedita quaerat nam eius reiciendis provident iusto dolorem voluptatem dicta architecto in, impedit est ullam repellat laudantium labore quod omnis. Distinctio, iure tempora aperiam nostrum recusandae aliquid, optio repudiandae vero, numquam porro nesciunt rerum magni quod nobis atque voluptate maiores similique facilis id repellendus assumenda neque nulla necessitatibus earum? Dolor ex similique neque earum ullam nihil labore distinctio tenetur eius perspiciatis, sint quasi. Vel debitis sint harum quo consequatur pariatur perspiciatis ipsam! Incidunt 
-                </br></div>
-                <div class="like"><a href="#"><i class="fa-solid fa-thumbs-up"></i></div>
-                    
-                <div class="comment">
-                    <a href="#"><i class="fa-solid fa-comment-dots">
+            <div class="userProfilGrillePublication">
+            <div class="userProfilContainer">
+                <img src="/images/<%=user.photoProfil%>" class="userProfilLogoPublication" width="30px" height="30px" >
+                <div class="userProfilPseudo"><%=user.username%></div> 
+                <div class="userProfilContenu">
+                    <br>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel laboriosam dolores nostrum, minus aliquid omnis aspernatur sunt magnam unde earum. Placeat porro recusandae reprehenderit doloribus id praesentium, ut amet eaque eveniet quod eos provident sint minima aut expedita molestias laborum earum temporibus dolor illum, ipsam mollitia officia. Iure tempore animi voluptatibus earum, odio quos. Sequi fuga at, praesentium quisquam quos officiis dolor quam reiciendis repudiandae tempora repellat corrupti, sed expedita incidunt! Quae vero tempora porro amet laudantium exercitationem sunt suscipit quas expedita necessitatibus similique harum autem aliquid voluptatem, non nulla cupiditate sapiente ipsum? Nostrum inventore expedita quaerat nam eius reiciendis provident iusto dolorem voluptatem dicta architecto in, impedit est ullam repellat laudantium labore quod omnis. Distinctio, iure tempora aperiam nostrum recusandae aliquid, optio repudiandae vero, numquam porro nesciunt rerum magni quod nobis atque voluptate maiores similique facilis id repellendus assumenda neque nulla necessitatibus earum? Dolor ex similique neque earum ullam nihil labore distinctio tenetur eius perspiciatis, sint quasi. Vel debitis sint harum quo consequatur pariatur perspiciatis ipsam! Incidunt </br>
+                </div>
+                        <div onclick="incrementClick()" class="userProfilLike"><a><i class="fa-solid fa-thumbs-up" ><h3 id="counter-label">0</h3></i></div>
+                    <div class="userProfilComment">
+                    <a href=""><i class="fa-solid fa-comment-dots">
                 </i></a></div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+
+var counterVal = 0;
+
+function incrementClick() {
+    updateDisplay(++counterVal);
+}
+
+function updateDisplay(val) {
+    document.getElementById("counter-label").innerHTML = val;
+}
+
+</script>
 

@@ -1,56 +1,57 @@
-  <div class="container-fluid h-100">
-    <div class="row justify-content-center h-100">
-      <div class="col-md-8 col-xl-6 chat">
-        <div class="card">
-          <div class="card-header msg_head">
-            <div class="d-flex bd-highlight">
-              <div class="img_cont">
-                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
-                    class="rounded-circle user_img">
-                <span class="online_icon"></span>
-              </div>
-              <div class="user_info">
-                <span>Pamela MIHIGO</span>
-                <p>En ligne</p>
-              </div>
-              <div class="video_cam">
-                <span><i class="fas fa-video"></i></span>
-                <span><i class="fas fa-phone"></i></span>
-              </div>
-             </div>
-          </div>
-          <!-- Chat messages will be appended inside this container -->
-          <div class="card-body msg_card_body">
-            <div class="d-flex justify-content-start mb-4">
-              <div class="img_cont_msg">
-                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
-                class="rounded-circle user_img_msg">
-              </div>
-              <div class="msg_cotainer" id="messages">
-              </div>
+<link rel='stylesheet' href='/stylesheets/chat.css' />
+
+
+<div class="Chatcontainer-fluid h-100">
+  <div class="row justify-content-center h-100">
+    <div class="col-md-8 col-xl-6 chat">
+      <div class="ChatCard">
+        <!-- Chatheader messages -->
+        <div class="ChatCard-header Chatmsg_head">
+          <div class="d-flex bd-highlight">
+            <div class="ChatImg_cont">
+              <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"class="rounded-circle ChatUser_img">
+              <span class="ChatOnline_icon"></span>
+            </div>
+            <div class="ChatUser_info">
+              <span>Pamela MIHIGO</span>
+              <p>En ligne</p>
+            </div>
+            <div class="ChatVideo_cam">
+              <span><i class="fas fa-video"></i></span>
+              <span><i class="fas fa-phone"></i></span>
             </div>
           </div>
-            <!-- Form to enter and submit new chat messages -->
-          <div class="card-footer ">
-            <div id ="messages"></div>
-              <form action="">
-                <div class="envoyer">
-                  <input type="text" id = "msg" autocomplete="off" class="form-control attach_btn" placeholder="Votre message" aria-label="Votre message" aria-describedby="addon-wrapping"/> 
-                  <button class="btn btn-primary"><i class="fas fa-location-arrow"> </i> </button>
-                </div>
-                <div class="input-group">
-                  <div class="input-group flex-nowrap"> </div>
-                </div>
-              </form>
+        </div>
+        <!-- Chat messages will be appended inside this container -->
+        <div class="ChatCard-body Chatmsg_card_body">
+          <div class="d-flex justify-content-start mb-6">
+            <div class="ChatImg_cont_msg">
+              <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"class="rounded-circle ChatUser_img_msg">
             </div>
+            <div class="Chatmsg_cotainer" id="messages"></div>
           </div>
-        </div> 
+        </div>
+        <!-- Form to enter and submit new chat messages -->
+        <div class="ChatCard-footer ">
+          <div id ="messages"></div>
+            <form action="" >
+              <div class="ChatEnvoyer">
+                <input type="text" id = "msg" autocomplete="off" class="ChatForm-control ChatAttach_btn" placeholder="Votre message" aria-label="Votre message" aria-describedby="addon-wrapping"/> 
+                <button class="Chatbtn btn-primary">Send</button>
+              </div>
+              <div class="input-group">
+                <div class="input-group flex-nowrap"> </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-
-   <!-- Script to emit/receive events from socket.io server -->
+  </div>
+</div>
+<!-- Script to emit/receive events from socket.io server -->
   <script src="/socket.io/socket.io.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     // var socket = io();
    $(function (){

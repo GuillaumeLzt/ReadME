@@ -3,13 +3,19 @@ const db = require("../models");
 const User = db.user;
 const Role = db.role;
 
+
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
+  console.log(`[.js:11] - req.body.password = ${req.body.password}`);
+
   const user = new User({
     username: req.body.username,
     email: req.body.email,
+    age: req.body.age,
+    ville: req.body.ville,
+    situation: req.body.situation,
     password: bcrypt.hashSync(req.body.password, 8)
   });
   user.save((err, user) => {
@@ -33,7 +39,7 @@ exports.signup = (req, res) => {
               res.status(500).send({ message: err });
               return;
             }
-            res.send({ message: "User was registered successfully!" });
+            res.redirect('/');
           });
         }
       );
@@ -49,7 +55,7 @@ exports.signup = (req, res) => {
             res.status(500).send({ message: err });
             return;
           }
-          res.send({ message: "User was registered successfully!" });
+          res.redirect('/');
         });
       });
     }
@@ -88,7 +94,8 @@ exports.signin = (req, res) => {
         authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
       }
       res.cookie('jwt', token);
-      console.log(token);
+      res.cookie('username', req.body.username);
+      
       return res.redirect('/');
     });
 };

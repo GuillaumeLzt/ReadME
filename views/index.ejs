@@ -1,0 +1,53 @@
+
+<link rel='stylesheet' href='/stylesheets/stilll.css' />
+
+<div class="indexCont">
+    <div class="indexContainer">
+        <div class="indexImg">
+            <img src="/images/me.jpg" class="indexLogo" width="40px" height="40px" >
+        </div>
+        <div class="indexName">Pamie</div> 
+        <div class="indexContenu"><hr><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint assumenda optio ab excepturi praesentium eum, porro sequi minima quo. Labore commodi in nemo illo iure sit quis similique a odit, repudiandae id, temporibus totam ullam quo quos qui. <br><br><hr></div>
+        
+        <div onclick="incrementClick()" class="userProfilLike"><a><i class="fa-solid fa-thumbs-up"><h3 id="counter-label">0</h3></i></div>
+            <div class="userProfilComment">
+            <a href=""><i class="fa-solid fa-comment-dots">
+        </i></a></div>
+    </div>
+</div>
+
+<div class="indexCont">
+    <div class="indexContainer">
+        <div class="indexImg">
+            <img src="/images/images.jpg" class="indexLogo" width="40px" height="40px" >
+        </div>
+        <div class="indexName">Faith Kondi</div> 
+        <div class="indexContenu"><hr><br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint assumenda optio ab excepturi praesentium eum, porro sequi minima quo. Labore commodi in nemo illo iure sit quis similique a odit, repudiandae id, temporibus totam ullam quo quos qui.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint assumenda optio ab excepturi praesentium eum, porro sequi minima quo. Labore commodi in nemo illo iure sit quis similique a odit, repudiandae id, temporibus totam ullam quo quos qui.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint assumenda optio ab excepturi praesentium eum, porro sequi minima quo. Labore commodi in nemo illo iure sit quis similique a odit, repudiandae id, temporibus totam ullam quo quos qui.Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae sint assumenda optio ab excepturi praesentium eum, porro sequi minima quo. Labore commodi in nemo illo iure sit quis similique a odit, repudiandae id, temporibus totam ullam quo quos qui. 
+        <br><br><hr></div>
+        
+        <div onclick="incrementClick1()" class="userProfilLike"><a><i class="fa-solid fa-thumbs-up"><h3 id="counter-label1">0</h3></i></div>
+            <div class="userProfilComment">
+            <a href=""><i class="fa-solid fa-comment-dots">
+        </i></a></div>
+    </div>
+</div>
+
+<script>
+    var counterVal = 0;
+    function incrementClick() {
+        updateDisplay(++counterVal);
+    }
+    function updateDisplay(val) {
+        document.getElementById("counter-label").innerHTML = val;
+    }
+
+    var counterVal1 = 0;
+    function incrementClick1() {
+        updateDisplay1(++counterVal1);
+    }
+    function updateDisplay1(val) {
+        document.getElementById("counter-label1").innerHTML = val;
+    }
+
+</script>
+    

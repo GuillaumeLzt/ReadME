@@ -2,33 +2,138 @@ const nodemailer = require('nodemailer');
 const db = require("../models");
 const User = db.user;
 var bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+
+require("dotenv").config();
+
+
 exports.home = (req, res) => {
 
-    res.render('index');
+    User.findOne({
+
+        username : req.cookies.username,
+
+    }).exec((err, user) => {
+
+        if (err) {
+
+          res.status(500).send({ message: err });
+          return;
+          
+        }else {   
+
+            res.render('index',{
+
+            user:user
+
+            })
+        }
+    });    
 };
+
+exports.chat = (req, res) => {
+
+    User.findOne({
+
+        username : req.cookies.username,
+
+    }).exec((err, user) => {
+
+        if (err) {
+
+          res.status(500).send({ message: err });
+          return;
+          
+        }   
+
+        res.render('chat',{
+
+            user:user
+        })
+        
+    });
+}
+
 
 exports.register = (req, res) => {
 
-    res.render('register');
+    res.render('register',{
+
+        user: null
+
+    });
 };
 
 exports.profil = (req, res) => {
 
-    res.render('userProfil');
+    User.findOne({
+
+        username : req.cookies.username,
+
+    }).exec((err, user) => {
+
+        if (err) {
+
+          res.status(500).send({ message: err });
+          return;
+          
+        }   
+
+        res.render('userProfil',{
+
+            user:user
+        })
+        
+    });
+
 }
 exports.photos = (req, res) => {
 
-    res.render('userPhotos');
+    User.findOne({
+
+        username : req.cookies.username,
+
+    }).exec((err, user) => {
+
+        if (err) {
+
+          res.status(500).send({ message: err });
+          return;
+          
+        }else {   
+
+            res.render('userPhotos',{
+
+            user: user
+
+            })
+        }
+    });    
 }
 
 exports.login = (req, res) => {
 
-    res.render('login');
+    res.render('login',{
+
+        user: null
+
+    });
 };
+
+exports.logout = (req, res) => {
+
+    res.cookie('jwt', '', {expiresIn: 1 });
+
+    res.cookie('username', '', {expiresIn: 1 });
+
+    res.redirect('/');
+}
+
 exports.forget = (req, res) => {
 
-    res.render('forgottenPassword');
+    res.render('forgottenPassword',{
+
+        user:null
+    });
 };
 
 exports.contact = (req, res) => {
@@ -39,7 +144,7 @@ exports.contact = (req, res) => {
 
 exports.forgetPost = (req, res) => {
 
-    res.cookie('mail', req.body.email);
+    
 
     User.findOne({
         email : req.body.email,
@@ -50,41 +155,40 @@ exports.forgetPost = (req, res) => {
           return;
           
         }else {
-
-            console.log('ok');
-
-    //  const transporter = nodemailer.createTransport({
-    
-    //     host: 'smtp.office365.com',
-    //     port: 587,
-    //     secure: false,
-    //     auth: {
-    //         user: 'gl40@hotmail.fr',
-    //         pass: 'emmaguillaume=0801',
-    //     },
-    // });
-
-    // let options = {
-
-    //         from: 'gl40@hotmail.fr',
-    //         to: req.body.email,
-    //         subject: 'Forgotten password',
-    //         text: 'http://localhost:3000/newpassword',
-    // }
-    // transporter.sendMail(options, (err, info) => {
         
-    //     if(err){
-    //         console.log(err, "email not sent");
-    //     }else{
-    //     console.log("email sent sucessfully");
-    //     }
-    
-    // });  
- };
 
-    
+            const transporter = nodemailer.createTransport({
+            
+                host: proces.env.HOST,
+                port: 587,
+                secure: false,
+                auth: {
+                    user: 'readME-service@hotmail.com',
+                    pass: 'AFGPFG04/10',
+                },
+            });
 
-});
+            let options = {
+
+                    from: 'readME-service@hotmail.com',
+                    to: req.body.email,
+                    subject: 'Forgotten password',
+                    text: 'http://localhost:3000/newpassword',
+            }
+            transporter.sendMail(options, (err, info) => {
+                
+                if(err){
+                    console.log(err, "email not sent");
+                }else{
+
+                    res.cookie('email', req.body.email);
+                    res.redirect('/login')
+                }
+    
+             });  
+        };
+
+    });
 };
  
 exports.newpassword = (req, res) => {
@@ -96,7 +200,7 @@ exports.newpasswordPost = (req, res) => {
 
     User.findOne({
 
-        email : res.cookies.email,
+        email : req.cookies.email,
 
     }).exec((err, user) => {
 
