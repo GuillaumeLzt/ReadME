@@ -2,43 +2,49 @@
 
 <div class="registerWrapper">
     <div class="registerBox4">
-        <h1> Inscription</h1>
+        <h1> Register</h1>
     </div>
-    <div class="registerBox5"> 
-    <form action="/register" method="post">
-        <div class="form-group">
-            <label for="pseudo">Pseudo : </label>
-            <input type="pseudo" id="pseudo" name="username" class="form-control" placeholder="Enter Pseudo..." value="<%= typeof pseudo != 'undefined' ? pseudo : '' %>"/>
-        </div>
-        <div class="form-group">
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email..." value="<%= typeof email != 'undefined' ? email : '' %>" size="30" />
-            <div class="email error"></div>
-        </div>
-        <div class="form-group">
-            <label for="password">Password :</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Create Password..." value="<%= typeof password != 'undefined' ? password : '' %>" size="30"/>
-            <div class="password error"></div>
-        </div>
-        <div class="form-group">
-            <label for="pseudo">Age :</label>
-            <input type="pseudo" id="pseudo" name="age" class="form-control" placeholder="Enter age..." value="<%= typeof pseudo != 'undefined' ? pseudo : '' %>"/>
-        </div>
-        <div class="form-group">
-            <label for="pseudo">Ville actuelle :</label>
-            <input type="pseudo" id="pseudo" name="ville" class="form-control" placeholder="Enter ville..." value="<%= typeof pseudo != 'undefined' ? pseudo : '' %>"/>
-        </div>
-        <div class="form-group">
-            <label for="pseudo">Situtation :</label>
-            <input type="pseudo" id="pseudo" name="situation" class="form-control" placeholder="Enter situation..." value="<%= typeof pseudo != 'undefined' ? pseudo : '' %>"/>
-        </div>
+    <div class="registerBox5">
+        <form action="/register" method="post">
+            <div class="form-group">
+                <label for="pseudo">Pseudo : </label>
+                <input type="pseudo" id="pseudo" name="username" class="form-control" placeholder="Enter Pseudo..."
+                    value="<%= typeof pseudo != 'undefined' ? pseudo : '' %>" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email..."
+                    value="<%= typeof email != 'undefined' ? email : '' %>" size="30" />
+                <div class="email error"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password :</label>
+                <input type="password" id="password" name="password" class="form-control"
+                    placeholder="Create Password..." value="<%= typeof password != 'undefined' ? password : '' %>"
+                    size="30" />
+                <div class="password error"></div>
+            </div>
+            <div class="form-group">
+                <label for="pseudo">Age :</label>
+                <input type="pseudo" id="pseudo" name="age" class="form-control" placeholder="Enter age..."
+                    value="<%= typeof pseudo != 'undefined' ? pseudo : '' %>" />
+            </div>
+            <div class="form-group">
+                <label for="pseudo">Ville actuelle :</label>
+                <input type="pseudo" id="pseudo" name="ville" class="form-control" placeholder="Enter ville..."
+                    value="<%= typeof pseudo != 'undefined' ? pseudo : '' %>" />
+            </div>
+            <div class="form-group">
+                <label for="pseudo">Situtation :</label>
+                <input type="pseudo" id="pseudo" name="situation" class="form-control" placeholder="Enter situation..."
+                    value="<%= typeof pseudo != 'undefined' ? pseudo : '' %>" />
+            </div>
 
-        <p>Vous avez déjà un compte ? <a href="/login">Login</a></p>
+            <p>Vous avez déjà un compte ? <a href="/login">Login</a></p>
+            <div class="registerBox6">
+                <input type="submit" value="Valider" class="btn btn-primary btn-block">
+                <input type="button" value="Annuler" onclick="history.go(-1)">
+            </div>
     </div>
-    <div class="registerBox6">
-        <input  type="submit" value="Valider" class="btn btn-primary btn-block">
-        <input type="button" value="Annuler" onclick="history.go(-1)">
-    </div>      
-    </form>          
-</div> 
-    
+    </form>
+</div>

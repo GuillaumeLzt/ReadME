@@ -6,6 +6,8 @@ const db = {};
 
 db.mongoose = mongoose;
 
+db.post = require("./post.js");
+db.photo = require("./photo.js");
 db.user = require("./user.js");
 db.role = require("./role.js");
 

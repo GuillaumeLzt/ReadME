@@ -5,11 +5,11 @@ const User = db.user;
 const Role = db.role;
 
 verifyToken = (req, res, next) => {
- 
+
   let token = req.cookies.jwt;
 
   console.log(token);
-  
+
   if (!token) {
     return res.status(403).send({ message: "No token provided!" });
   }
@@ -76,9 +76,9 @@ isModerator = (req, res, next) => {
     );
   });
 };
-const authJwt = {
+
+module.exports = {
   verifyToken,
   isAdmin,
   isModerator
 };
-module.exports = authJwt;

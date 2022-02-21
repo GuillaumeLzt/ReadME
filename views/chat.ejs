@@ -1,5 +1,8 @@
-<link rel='stylesheet' href='/stylesheets/chat.css' />
-
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js">
+</script> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel='stylesheet' href='/stylesheets/stylll.css' />
 
 <div class="Chatcontainer-fluid h-100">
   <div class="row justify-content-center h-100">
@@ -9,7 +12,7 @@
         <div class="ChatCard-header Chatmsg_head">
           <div class="d-flex bd-highlight">
             <div class="ChatImg_cont">
-              <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"class="rounded-circle ChatUser_img">
+              <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle ChatUser_img">
               <span class="ChatOnline_icon"></span>
             </div>
             <div class="ChatUser_info">
@@ -26,49 +29,49 @@
         <div class="ChatCard-body Chatmsg_card_body">
           <div class="d-flex justify-content-start mb-6">
             <div class="ChatImg_cont_msg">
-              <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"class="rounded-circle ChatUser_img_msg">
+              <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg"
+                class="rounded-circle ChatUser_img_msg">
             </div>
             <div class="Chatmsg_cotainer" id="messages"></div>
           </div>
         </div>
         <!-- Form to enter and submit new chat messages -->
         <div class="ChatCard-footer ">
-          <div id ="messages"></div>
-            <form action="" >
-              <div class="ChatEnvoyer">
-                <input type="text" id = "msg" autocomplete="off" class="ChatForm-control ChatAttach_btn" placeholder="Votre message" aria-label="Votre message" aria-describedby="addon-wrapping"/> 
-                <button class="Chatbtn btn-primary">Send</button>
-              </div>
-              <div class="input-group">
-                <div class="input-group flex-nowrap"> </div>
-              </div>
-            </form>
-          </div>
+          <div id="messages"></div>
+          <form action="">
+            <div class="ChatEnvoyer">
+              <input type="text" id="msg" autocomplete="off" class="ChatForm-control ChatAttach_btn"
+                placeholder="Votre message" aria-label="Votre message" aria-describedby="addon-wrapping" />
+              <button class="Chatbtn btn-primary">Send</button>
+            </div>
+            <div class="input-group">
+              <div class="input-group flex-nowrap"> </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+</div>
 <!-- Script to emit/receive events from socket.io server -->
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    // var socket = io();
-   $(function (){
- 
-     var socket = io();
-     $("form").submit(function (e) {
-       e.preventDefault();
- 
-       socket.emit("chat message", $("#msg").val() );
-       $("#msg").val("");
-       return false;
-     });
-     socket.on('chat message', function(msg) {
-       $("#messages").append($("<p>").text(msg));
- 
-     });
-   });
-  </script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  // var socket = io();
+  $(function () {
 
+    var socket = io();
+    $("form").submit(function (e) {
+      e.preventDefault();
 
+      socket.emit("chat message", $("#msg").val());
+      $("#msg").val("");
+      return false;
+    });
+    socket.on('chat message', function (msg) {
+      $("#messages").append($("<p>").text(msg));
+
+    });
+  });
+</script>

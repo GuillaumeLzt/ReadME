@@ -6,33 +6,33 @@ var path = require('path');
 const app = express();
 const cookieParser = require('cookie-parser');
 var expresslayouts = require('express-ejs-layouts');
-const server = require ('http').createServer(app);
+const server = require('http').createServer(app);
 const io = require("socket.io")(server);
-const routes = require('./server/routes/user');
+const routes = require('./server/routes/routes');
 
- /*------------------------------------------------
- *  EVENEMENTS DE CONNECTION SOCKET
- * ----------------------------------------------- 
- */
- // établissement de la connexion
- // IMPORTANT! By default, socket.io() connects to the host that
+/*------------------------------------------------
+*  EVENEMENTS DE CONNECTION SOCKET
+* ----------------------------------------------- 
+*/
+// établissement de la connexion
+// IMPORTANT! By default, socket.io() connects to the host that
 // served the page, so we dont have to pass the server url
 io.on('connection', (socket) => {
   console.log('Un utilisateur s\'est connecté ! ') // FILE /client/chat.js
   socket.on('chat message', (msg) => {
     io.emit('chat message', msg);//pour povoir envoyer les evenements on utilise le EMIT
-    });
+  });
 });
 
 var corsOptions = {
-origin: 'http://localhost:3000'
+  origin: 'http://localhost:3000'
 };
 
 app.use(cors(corsOptions));
 
 app.use(express.json());
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 
@@ -70,10 +70,9 @@ db.mongoose
 
 app.use('/', routes);
 
-require('./server/routes/authent')(app);
 
 
-const PORT = process.env.PORT || 3000; 
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);

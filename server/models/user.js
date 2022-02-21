@@ -1,11 +1,11 @@
+const { string } = require("joi");
 const mongoose = require("mongoose");
 const User = mongoose.model(
   "User",
   new mongoose.Schema({
 
     username: String,
-    photoProfil:{type:String,require:false,default:'defaultProfil.png'}, 
-    photo:String,
+    photoProfil: { type: String, require: false, default: 'defaultProfil.png' },
     email: String,
     password: String,
     age: Number,

@@ -2,6 +2,9 @@ const nodemailer = require('nodemailer');
 const db = require("../models");
 const User = db.user;
 var bcrypt = require("bcryptjs");
+const { user } = require('../models');
+const { Error } = require('mongoose');
+const Photo = db.photo;
 
 require("dotenv").config();
 
@@ -10,109 +13,99 @@ exports.home = (req, res) => {
 
     User.findOne({
 
-        username : req.cookies.username,
+        username: req.cookies.username,
 
     }).exec((err, user) => {
 
         if (err) {
 
-          res.status(500).send({ message: err });
-          return;
-          
-        }else {   
+            res.status(500).send({ message: err });
+            return;
 
-            res.render('index',{
+        } else {
 
-            user:user
+            res.render('index', {
+
+                user: user
 
             })
         }
-    });    
+    });
 };
 
 exports.chat = (req, res) => {
 
     User.findOne({
 
-        username : req.cookies.username,
+        username: req.cookies.username,
 
     }).exec((err, user) => {
 
         if (err) {
 
-          res.status(500).send({ message: err });
-          return;
-          
-        }   
+            res.status(500).send({ message: err });
+            return;
 
-        res.render('chat',{
+        }
 
-            user:user
+        res.render('chat', {
+
+            user: user
         })
-        
+
     });
 }
 
 
 exports.register = (req, res) => {
 
-    res.render('register',{
+    res.render('register', {
 
         user: null
 
     });
 };
 
-exports.profil = (req, res) => {
+exports.profil = async (req, res) => {
+    try {
+        const user = await User.findOne({ username: req.cookies.username }).exec();
+        const userPhotos = await Post.find({ username: req.cookies.username }).limit(10);
 
-    User.findOne({
+        res.render('userProfil', { user: user, userPhotos: userPhotos });
+    } catch (error) {
+        //gestion des erreurs
+        res.status(500).send({ message: error.message || "Error Occured" });
+    }
 
-        username : req.cookies.username,
+};
 
-    }).exec((err, user) => {
 
-        if (err) {
 
-          res.status(500).send({ message: err });
-          return;
-          
-        }   
+//    const user = await User.findOne({
 
-        res.render('userProfil',{
+//         username : req.cookies.username,
 
-            user:user
-        })
-        
-    });
+//     }).exec((err, user) => {
 
-}
-exports.photos = (req, res) => {
+//         if (err) {
 
-    User.findOne({
+//           res.status(500).send({ message: err });
+//           return;
 
-        username : req.cookies.username,
+//         }else {   
 
-    }).exec((err, user) => {
+//             res.render('userPhotos',{
 
-        if (err) {
+//             user: user
 
-          res.status(500).send({ message: err });
-          return;
-          
-        }else {   
+//             })
+//         }
+//     });    
 
-            res.render('userPhotos',{
-
-            user: user
-
-            })
-        }
-    });    
-}
 
 exports.login = (req, res) => {
 
-    res.render('login',{
+    res.render('login', {
 
         user: null
 
@@ -121,44 +114,52 @@ exports.login = (req, res) => {
 
 exports.logout = (req, res) => {
 
-    res.cookie('jwt', '', {expiresIn: 1 });
+    res.cookie('jwt', '', { expiresIn: 1 });
 
-    res.cookie('username', '', {expiresIn: 1 });
+    res.cookie('username', '', { expiresIn: 1 });
 
     res.redirect('/');
 }
 
 exports.forget = (req, res) => {
 
-    res.render('forgottenPassword',{
+    res.render('forgottenPassword', {
 
-        user:null
+        user: null
     });
 };
 
-exports.contact = (req, res) => {
+exports.contact = async (req, res) => {
+    try {
 
-    res.render('contact');
-    
+        const user = await User.findOne({ username: req.cookies.username })
+        res.render('contact', { user: user });
+    } catch (error) {
+        res.status(500).send({ message: Error });
+
+    }
+
+
+
 }
 
 exports.forgetPost = (req, res) => {
 
-    
+
 
     User.findOne({
-        email : req.body.email,
-      }).exec((err, user) => {
+        email: req.body.email,
+    }).exec((err, user) => {
         if (err) {
 
-          res.status(500).send({ message: err });
-          return;
-          
-        }else {
-        
+            res.status(500).send({ message: err });
+            return;
+
+        } else {
+
 
             const transporter = nodemailer.createTransport({
-            
+
                 host: proces.env.HOST,
                 port: 587,
                 secure: false,
@@ -170,27 +171,27 @@ exports.forgetPost = (req, res) => {
 
             let options = {
 
-                    from: 'readME-service@hotmail.com',
-                    to: req.body.email,
-                    subject: 'Forgotten password',
-                    text: 'http://localhost:3000/newpassword',
+                from: 'readME-service@hotmail.com',
+                to: req.body.email,
+                subject: 'Forgotten password',
+                text: 'http://localhost:3000/newpassword',
             }
             transporter.sendMail(options, (err, info) => {
-                
-                if(err){
+
+                if (err) {
                     console.log(err, "email not sent");
-                }else{
+                } else {
 
                     res.cookie('email', req.body.email);
                     res.redirect('/login')
                 }
-    
-             });  
+
+            });
         };
 
     });
 };
- 
+
 exports.newpassword = (req, res) => {
 
     res.render('newpassword');
@@ -200,44 +201,44 @@ exports.newpasswordPost = (req, res) => {
 
     User.findOne({
 
-        email : req.cookies.email,
+        email: req.cookies.email,
 
     }).exec((err, user) => {
 
         if (err) {
 
-          res.status(500).send({ message: err });
-          return;
-          
-        }else {   
+            res.status(500).send({ message: err });
+            return;
 
-        User.findByIdAndUpdate(user.id, { 
+        } else {
 
-        password: bcrypt.hashSync(req.body.password, 8),
-        
-        },(err, doc) => {
-      
-          if(!err){
-            
-              res.redirect('/login');// EO forEach
-      
-          }
-        
-        });  
+            User.findByIdAndUpdate(user.id, {
+
+                password: bcrypt.hashSync(req.body.password, 8),
+
+            }, (err, doc) => {
+
+                if (!err) {
+
+                    res.redirect('/login');// EO forEach
+
+                }
+
+            });
         }
     });
 
 };
 
 exports.allAccess = (req, res) => {
-res.status(200).send("Public Content.");
+    res.status(200).send("Public Content.");
 };
 exports.userBoard = (req, res) => {
-res.status(200).send("User Content.");
+    res.status(200).send("User Content.");
 };
 exports.adminBoard = (req, res) => {
-res.status(200).send("Admin Content.");
+    res.status(200).send("Admin Content.");
 };
 exports.moderatorBoard = (req, res) => {
-res.status(200).send("Moderator Content.");
+    res.status(200).send("Moderator Content.");
 };

@@ -1,33 +1,39 @@
 <link rel='stylesheet' href='/stylesheets/stylll.css' />
-        <div class="userPhotosWrapper">
-            <div class="userPhotosCover">
-                <img src="/images/plage.jpg">
-            </div>
-            <div class="userPhotosId-section">
-                <div class="userPhotosCircle">
-                    <img src="/images/<%=user.photoProfil%>"class="userPhotosLogo">
-                </div>
-                <div class="userPhotosTitle"><%=user.username%> Gallery</div>
-                <!-- <div class="grille1"> -->
+<div class="userPhotosWrapper">
+    <div class="userPhotosCover">
+        <img src="/images/plage.jpg">
+    </div>
+    <div class="userPhotosId-section">
+        <div class="userPhotosCircle">
+            <img src="/images/<%=user.photoProfil%>" class="userPhotosLogo">
+        </div>
+        <div class="userPhotosTitle">
+            <%=user.username%> Gallery
+        </div>
+        <!-- <div class="grille1"> -->
+        <div class="userPhotosGrille">
+            <% if(typeof userPhotos !=='undefined' && userPhotos.length> 0 ) { %>
+                <% userPhotos.forEach(function(userPhoto) { %>
+                    <div class="userPhotosGrid-item"><img src="/uploads/<%=userPhoto.img%>" width="200px"
+                            height="200px"></div>
+                    <% }) %>
 
-                <div class="userPhotosGrille">
-                    <div class="userPhotosGrid-item"><img src="/images/paysage4.jpg" width="200px" height="200px"></div>
-                    <div class="userPhotosGrid-item"><img src="/images/paysage1.jpg" width="200px" height="200px"></div>
-                    <div class="userPhotosGrid-item"><img src="/images/paysage2.jpg" width="200px" height="200px"></div>
-                    <div class="userPhotosGrid-item"><img src="/images/paysage3.jpg" width="200px" height="200px"></div>
-                
-                    <div class="userPhotosGrid-item"><img src="/images/paysage5.jpg" width="200px" height="200px"></div>
-                    <div class="userPhotosGrid-item"><img src="/images/paysage6.jpg" width="200px" height="200px"></div>
-                    <div class="userPhotosGrid-item"><img src="/images/paysage7.jpg" width="200px" height="200px"></div>
-                    <div class="userPhotosGrid-item"><img src="/images/paysage8.jpg" width="200px" height="200px"></div>
-                
-                    <div class="userPhotosGrid-item"><img src="/images/paysage9.jpg" width="200px" height="200px"></div>
-                    <div class="userPhotosGrid-item"><img src="/images/paysage10.jpg" width="200px" height="200px"></div>
-                    <div class="userPhotosGrid-item"><img src="/images/paysage11.jpg" width="200px" height="200px"></div>
-                    <div class="userPhotosGrid-item"><img src="/images/paysage12.jpg" width="200px" height="200px"></div>
-                </div>
-                </div>
-            </div>
+                        <% } else { %>
+                            <p>Aucunes photos trouvées.</p>
+                            <% } %>
+
+                                <form action="/userPhotos" enctype="multipart/form-data" method="POST">
+                                    <div class="col-12">
+
+                                        <input type="file" class="form-control" name="image" accept="image/*">
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                                    </div>
+                                </form>
         </div>
     </div>
+</div>
+</div>
 
+</div>

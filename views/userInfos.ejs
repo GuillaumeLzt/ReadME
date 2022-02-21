@@ -1,0 +1,39 @@
+<link rel='stylesheet' href='/stylesheets/styleinfos.css' />
+
+<div class="userInfosWrapper">
+    <div class="userInfosCover">
+        <img src="/images/plage.jpg">
+    </div>
+    <div class="userInfosId-section">
+        <div class="userInfosCircle">
+            <img src="/images/<%=user.photoProfil%>" class="userProfilLogo">
+        </div>
+        <div class="userInfosId">
+            <div class="userInfosDetailName">
+                <%=user.username%>
+            </div>
+            <div class="userInfosMoreDetailes"> Student AFPA | Entry-level Developer | Photographer </div>
+        </div>
+        <hr>
+        <br>
+        <div class="userInfosDetails">
+            <ul>
+                <li>Pseudo: <b>
+                        <%=user.username%>
+                    </b></li>
+                <li>Age:<b>
+                        <%=user.age%> ans
+                    </b></li>
+                <li>Résidence:<b>
+                        <%=user.ville%>
+                    </b></li>
+                <li>Status:<b>
+                        <%=user.situation%>
+                    </b></li>
+            </ul>
+        </div>
+        <br>
+        <hr>
+    </div>
+</div>
+</div>

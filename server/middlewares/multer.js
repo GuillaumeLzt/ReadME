@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
     //repertoire de stockage fichier ./public/img/
 
     destination: function (req, file, cb) {
-        cb(null, "./public/images/");
+        cb(null, "./public/uploads");
     },
     // filename = nom attribué au fichier importer + extension
     filename: function (req, file, cb) {

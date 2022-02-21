@@ -1,38 +1,43 @@
-    <link rel="stylesheet" href="/stylesheets/stylll.css" />
+<link rel="stylesheet" href="/stylesheets/stylll.css" />
 
-    <form action="mailto:readME-service@hotmail.com">
-      <h1>Contactez-nous</h1>
-      <!-- <div class="separation"></div> -->
-      <div class="corps-formulaire">
-        <div class="gauche">
-          <div class="groupe">
-            <label>Votre Prénom</label>
-            <input type="text" autocomplete="off" />
-            <i class="fas fa-user"></i>
-          </div>
-          <div class="groupe">
-            <label>Votre adresse e-mail</label>
-            <input type="text" autocomplete="off" />
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="groupe">
-            <label>Votre téléphone</label>
-            <input type="text" autocomplete="off" />
-            <i class="fas fa-mobile"></i>
-          </div>
-        </div>
-
-        <div class="droite">
-          <div class="groupe">
-            <label>Message</label>
-            <textarea placeholder="Saisissez ici..."></textarea>
-          </div>
-        </div>
+<form action="mailto:readME-service@hotmail.com">
+  <h1>Contactez-nous</h1>
+  <!-- <div class="separation"></div> -->
+  <div class="corps-formulaire">
+    <div class="gauche">
+      <div class="groupe">
+        <label>Votre Prénom</label>
+        <input type="text" placeholder="<%=user.username%>" autocomplete="off" />
+        <i class="fas fa-user"></i>
       </div>
-
-      <div class="pied-formulaire" align="center">
-        <input type = "button" value = "Retour"  onclick = "history.back()">
-        <input type="submit" value="Envoyer">
+      <div class="groupe">
+        <label>Votre adresse e-mail</label>
+        <input type="text" placeholder="<%=user.email%>" autocomplete="off" />
+        <i class="fas fa-envelope"></i>
       </div>
-      
-    </form>
+      <div class="groupe">
+        <label>Votre téléphone</label>
+        <input type="text" autocomplete="off" />
+        <i class="fas fa-mobile"></i>
+      </div>
+    </div>
+
+    <div class="droite">
+      <div class="groupe">
+        <label>Message</label>
+        <textarea placeholder="Saisissez ici..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="pied-formulaire" align="center">
+    <input type="button" value="Retour" onclick="history.back()">
+    <input type="submit" value="Envoyer">
+  </div>
+
+  <div class="corps-formulaire">
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2200.34130471987!2d1.5171342748332333!3d48.441945905821534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e40d330b9f8a55%3A0x495998ada34128b7!2sAFPA!5e0!3m2!1sfr!2sfr!4v1645454217250!5m2!1sfr!2sfr"
+        width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</form>

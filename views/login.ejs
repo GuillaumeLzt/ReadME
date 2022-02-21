@@ -4,22 +4,25 @@
     <div class="loginBox1">
         <h1> Login</h1>
     </div>
-    <div class="loginBox2"> 
-    <form action="/login" method="POST">
-        <div class="form-group">
-            <label for="email">Username</label>
-            <input type="pseudo" id="email" name="username" class="form-control" placeholder="Enter Name..." value="<%= typeof email != 'undefined' ? email : '' %>" size="30" />
-            <div class="email error"></div>
-        </div>
-        <div class="form-group">
-            <label for="password">Password : </label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password..." value="<%= typeof password != 'undefined' ? password : '' %>" size="30"/>
-        </div>
-        <p>Toujours pas membre ? <a href="/register">Créer un compte</a></p>
-        <p>Mot de passe oublié ? <a href="/forgottenpassword">Créer un nouveau mot de passe</a></p>
-    <div class="loginBox3">
-        <input  type="submit" value="Valider" class="btn btn-primary btn-block">
-        <input type="button" value="Annuler" onclick="history.go(-1)">
+    <div class="loginBox2">
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="email">Username</label>
+                <input type="pseudo" id="email" name="username" class="form-control" placeholder="Enter Name..."
+                    value="<%= typeof email != 'undefined' ? email : '' %>" size="30" />
+                <div class="email error"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password : </label>
+                <input type="password" id="password" name="password" class="form-control"
+                    placeholder="Enter Password..." value="<%= typeof password != 'undefined' ? password : '' %>"
+                    size="30" />
+            </div>
+            <p>Toujours pas membre ? <a href="/register">Créer un compte</a></p>
+            <p>Mot de passe oublié ? <a href="/forgottenpassword">Créer un nouveau mot de passe</a></p>
+            <div class="loginBox3">
+                <input type="submit" value="Valider" class="btn btn-primary btn-block">
+                <input type="button" value="Annuler" onclick="history.go(-1)">
+            </div>
+        </form>
     </div>
-    </form>
-</div>        
